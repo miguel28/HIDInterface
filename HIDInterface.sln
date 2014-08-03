@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HIDTestTool", "HIDTestToll\HIDTestTool.csproj", "{3F7E615E-DD78-4272-9834-B61D17C2A3FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USBInterface", "USBInterface\USBInterface.csproj", "{30432D4A-0128-48E7-ADCD-249D70323611}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F7E615E-DD78-4272-9834-B61D17C2A3FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F7E615E-DD78-4272-9834-B61D17C2A3FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F7E615E-DD78-4272-9834-B61D17C2A3FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F7E615E-DD78-4272-9834-B61D17C2A3FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30432D4A-0128-48E7-ADCD-249D70323611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30432D4A-0128-48E7-ADCD-249D70323611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30432D4A-0128-48E7-ADCD-249D70323611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30432D4A-0128-48E7-ADCD-249D70323611}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
