@@ -17,25 +17,25 @@ namespace USBInterface
         public const string DLL_FILE_NAME = "hidapi.dll";
 #endif
 
-        [DllImport(DLL_FILE_NAME)]
+        [DllImport(DLL_FILE_NAME, CallingConvention = CallingConvention.Cdecl)]
 		private extern static IntPtr hid_open(ushort vendor_id, ushort product_id, IntPtr serial_number);
 
-        [DllImport(DLL_FILE_NAME)]
+        [DllImport(DLL_FILE_NAME, CallingConvention = CallingConvention.Cdecl)]
 		private extern static void hid_close(IntPtr device);
 
-        [DllImport(DLL_FILE_NAME)]
+        [DllImport(DLL_FILE_NAME, CallingConvention = CallingConvention.Cdecl)]
 		private extern static int hid_set_nonblocking(IntPtr device, int nonblock);
 
-        [DllImport(DLL_FILE_NAME)]
+        [DllImport(DLL_FILE_NAME, CallingConvention = CallingConvention.Cdecl)]
 		private extern static int hid_write(IntPtr device, IntPtr data, int length);
 
-        [DllImport(DLL_FILE_NAME)]
+        [DllImport(DLL_FILE_NAME, CallingConvention = CallingConvention.Cdecl)]
 		private extern static int hid_read(IntPtr device, IntPtr data, int length);
 
-        [DllImport(DLL_FILE_NAME)]
+        [DllImport(DLL_FILE_NAME, CallingConvention = CallingConvention.Cdecl)]
 		private extern static int hid_get_manufacturer_string(IntPtr device, IntPtr str, UInt32 size);
 
-        [DllImport(DLL_FILE_NAME)]
+        [DllImport(DLL_FILE_NAME, CallingConvention = CallingConvention.Cdecl)]
 		private extern static int hid_get_product_string(IntPtr device, IntPtr str, UInt32 size);
 
         #endregion
