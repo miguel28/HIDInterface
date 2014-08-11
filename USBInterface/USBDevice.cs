@@ -271,5 +271,12 @@ namespace USBInterface
             }
             return ret;
         }
+        public float StreamReadFloat()
+        {
+            float ret = (float)System.BitConverter.ToSingle(BufferIN, RStreamPointer);
+            RStreamPointer+=4;
+            return ret;
+        }
+
     }
 }
