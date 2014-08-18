@@ -109,6 +109,16 @@ namespace USBInterface
 				if(DeviceHandle != IntPtr.Zero)HIDisOpen=true;
 			}
 		}
+        public void ReOpen(ushort VendorID, ushort ProductID)
+        {
+            if (HIDisOpen)
+                Close();
+            DeviceHandle = hid_open(VendorID, ProductID, IntPtr.Zero);
+            if (DeviceHandle != IntPtr.Zero)
+            {
+                HIDisOpen = true;
+            }
+        }
 		public void Close()
 		{
 		     if(HIDisOpen)
@@ -142,28 +152,39 @@ namespace USBInterface
 
         public int SendBuffer()
 		{
-		    if(HIDisOpen)
+            int Result = 0;
+            if(HIDisOpen)
 			{
 				int size = Marshal.SizeOf(BufferOUT[0]) * BufferOUT.Length;
 				IntPtr pnt = Marshal.AllocHGlobal(size);
 				Marshal.Copy(BufferOUT, 0, pnt, BufferOUT.Length);
-                return hid_write(DeviceHandle, pnt, ReportLenght + 1);
+                Result = hid_write(DeviceHandle, pnt, ReportLenght + 1);
 			}
-		    else return -1;
+		    else Result = -1;
+
+            if (Result < 0)
+                throw new Exception("USB Has been disconected!");
+
+            return Result;
 		}
 		public int ReciveBuffer()
 		{
-		    CleanBufferIN();
+            int Result = 0;
+            CleanBufferIN();
 		    if(HIDisOpen)
 		    {
 		        //res = hid_read_timeout(DeviceHandle, BufferIN, 65,1);
 				int size = Marshal.SizeOf(BufferIN[0]) * BufferIN.Length;
 				IntPtr pnt = Marshal.AllocHGlobal(size);
-                int res = hid_read(DeviceHandle, pnt, ReportLenght + 1);
+                Result = hid_read(DeviceHandle, pnt, ReportLenght + 1);
 				Marshal.Copy (pnt, BufferIN, 0, BufferIN.Length);
-		        return res;
 		    }
-		    else return -1;
+            else Result= - 1;
+
+            if (Result < 0)
+                throw new Exception("USB Has been disconected!");
+
+            return Result;
 		}
         public void WriteString(string str)
         {
